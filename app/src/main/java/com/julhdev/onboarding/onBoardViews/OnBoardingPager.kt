@@ -3,6 +3,7 @@ package com.julhdev.onboarding.onBoardViews
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -42,7 +43,9 @@ fun OnBoardingPager(
   ){
     Column(
       horizontalAlignment = Alignment.CenterHorizontally,
-      verticalArrangement = Arrangement.Center
+      verticalArrangement = Arrangement.Center,
+      modifier = Modifier
+        .fillMaxSize()
     ) {
       HorizontalPager(
         state = pagerState,
@@ -96,10 +99,9 @@ fun OnBoardingPager(
       BtnFinish(
         currentPage = pagerState.currentPage,
         navController,
-        store = StoreBoarding(navController.context)
+        store = store
       )
     }
-
   }
 }
 
